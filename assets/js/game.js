@@ -131,44 +131,24 @@ var shop = function() {
     'Would you like to REFILL your health, UPGRADE your attack, or LEAVE the store? Please enter one "REFILL", "UPGRADE", or "LEAVE" to make a choice.'
   );
 
+  shopOptionPrompt = parseInt(shopOptionPrompt);
+
   switch (shopOptionPrompt) {
-    case 'REFILL':
-    case 'refill':
-      if (playerMoney >= 7) {
-        window.alert("Refilling player's health by 20 for 7 dollars.");
-
-        playerHealth = playerHealth + 20;
-        playerMoney = playerMoney - 7;
-    }
-    else {
-        window.alert("You don't have enough money!");
-    }
+    case 1:
+      playerInfo.refillHealth();
       break;
-    case 'UPGRADE':
-    case 'upgrade':
-      if (playerMoney >= 7) {
-        window.alert("Upgrading player's attack by 6 for 7 dollars.");
-
-        playerAttack = playerAttack + 6;
-        playerMoney = playerMoney - 7;
-    }
-    else {
-        window.alert("You don't have enough money!");
-    }
+    case 2:
+      playerInfo.upgradeAttack();
       break;
-    case 'LEAVE':
-    case 'leave':
-      window.alert('Leaving the store.');
-
+    case 3:
+      window.alert("Leaving the store.");
       break;
     default:
-      window.alert('You did not pick a valid option. Try again.');
-
+      window.alert("You did not pick a valid option. Try again.");
       shop();
       break;
   }
 };
-
 var getPlayerName = function() {
   var name = "";
 
