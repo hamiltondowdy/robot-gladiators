@@ -8,6 +8,30 @@ var enemyHealth = 50;
 var enemyAttack = 12;
 
 
+var fightOrSkip = function() {
+  var promptFight = window.prompt('Would you like to FIGHT or SKIP this battle? Enter "FIGHT" or "SKIP" to choose.');
+
+  if (promptFight === "" || promptFight === null) {
+    window.alert("You need to provide a valid answer! Please try again.");
+    return fightOrSkip();
+  }
+
+  promptFight = promptFight.toLowerCase();
+
+  if (promptFight === "skip") {
+    var confirmSkip = window.confirm("Are you sure you'd like to quit?");
+
+    if (confirmSkip) {
+      window.alert(playerInfo.name + " has decided to skip this fight. Goodbye!");
+      playerInfo.money = Math.max(0, playerInfo.money - 10);
+
+      return true;
+    }
+  }
+  return false;
+};
+
+
 var fight = function(enemyName) {
   while (playerHealth > 0 && enemyHealth > 0) {
     var promptFight = window.prompt('Would you like to FIGHT or SKIP this battle? Enter "FIGHT" or "SKIP" to choose.');
@@ -144,6 +168,18 @@ var shop = function() {
       break;
   }
 };
+
+var getPlayerName = function() {
+  var name = "";
+
+  while (name === "" || name === null) {
+    name = prompt("What is your robot's name?");
+  }
+  console.log("Your robot's name is " + name);
+  return name;
+};
+
+
 
 startGame();
 
