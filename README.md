@@ -1,8 +1,6 @@
 ### Robot Gladiators! A Javascript Game
 
 ## Description
-
-# Description
 The game will prompt the user to name their robot.
 
 The player's robot will be initialized with the following properties:
